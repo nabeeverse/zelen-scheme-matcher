@@ -3,10 +3,11 @@ import mysql.connector
 from mysql.connector import Error
 
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "MYSQL_PASSWORD",
-    "database": "scheme_matching_db"
+    "host": os.getenv("DB_HOST"),
+    "port": int(os.getenv("DB_PORT", "3306")),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("MYSQL_PASSWORD"),
+    "database": os.getenv("DB_NAME", "scheme_matching_db")
 }
 
 
